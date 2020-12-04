@@ -7,7 +7,6 @@ import { IPanel, PanelControl } from '../src/panel/PanelControl';
 import { RecalculatePositions } from '../src/helper/Positioning';
 
 export default function Home() {
-  //const panelsContext = 
   const [panels, setPanels] = useState<IPanel[]>([]);
 
   useEffect(() => {
@@ -25,7 +24,7 @@ export default function Home() {
 
   function onWindowResize() {
     if (!PanelControl.Panels.value.length) return;
-    
+
     let panel = PanelControl.Panels.value[0];
     onPanelResize(0, panel.width, panel.height);
   }
