@@ -10,7 +10,7 @@ import { GetNextPosition } from '../helper/Positioning';
 export default function Sidebar() {
     function addWidget() {
         let tmp: IPanel;
-        tmp = {id: uuidv4(), width: 600, height: 200, data: PanelControl.Panels.value.length.toString()};
+        tmp = {id: uuidv4(), x: 0, y: 0, width: 600, height: 200, data: PanelControl.Panels.value.length.toString()};
         tmp = GetNextPosition(tmp);
 
         PanelControl.appendPanels(tmp);
