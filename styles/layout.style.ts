@@ -27,7 +27,15 @@ export default css`
     position: fixed;
     top: ${headerHeight}px;
     left: ${sidebarWidth}px;
-    width: 100%;
-    height: 100%;
+    width: calc(100% - ${sidebarWidth}px);
+    height: calc(100% - ${headerHeight}px - 10px);
+
+    overflow: auto;
+    padding-bottom: 20px;
+  }
+
+  .content-display {
+    display: flex;
+    flex-wrap: wrap;
   }
 `
