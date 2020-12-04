@@ -30,21 +30,28 @@ function calculateNextPosition(currentPanel: IPanel, panels: IPanel[]): IPanel {
     if (newRightEdge >= window.innerWidth - 120) {    // next line
         newRightEdge = 0;
 
+        console.log(currentPanel)
         panels.forEach(panel => {
             let bottomEdge = panel.y + panel.height;
             if (bottomEdge > newTopEdge) {
-                newTopEdge = bottomEdge + 10;
+                if (currentPanel.x + currentPanel.width > panel.x) {
+                    newTopEdge = bottomEdge + 10;
+                }
             }
         })
     } else {
+        newRightEdge = rightEdge + 10;
+
         panels.forEach(panel => {
-            let bottomEdge = panel.y;
-            if (bottomEdge > newTopEdge) {
-                newTopEdge = bottomEdge;
+            //if (newRightEdge < (panel.x + panel.width)) {
+            //    newRightEdge = (panel.x + panel.width) + 10;
+            //}
+
+            if (newTopEdge < (panel.y + panel.height) && newRightEdge < (panel.x + panel.width)) {
+                newTopEdge = (panel.y + panel.height) + 10;
             }
         })
 
-        newRightEdge = rightEdge + 10;
     }
 
     return {
