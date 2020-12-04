@@ -15,10 +15,20 @@ export default function Home() {
       setPanels([...incomingPanels])
     });
 
+    window.addEventListener("resize", onWindowResize);
+      
     return (() => {
       pcSub.unsubscribe();
+      window.removeEventListener("resize", onWindowResize)
     })
   }, []);
+
+  function onWindowResize() {
+    if (!PanelControl.Panels.value.length) return;
+    
+    let panel = PanelControl.Panels.value[0];
+    onPanelResize(0, panel.width, panel.height);
+  }
 
   function onPanelResize(idx: number, newWidth: number, newHeight: number) {
     let tmp = PanelControl.Panels.value;
