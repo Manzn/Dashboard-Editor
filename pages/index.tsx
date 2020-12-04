@@ -3,7 +3,7 @@ import globalStyles from '../styles/index.style';
 export default function Home() {
   return (
     <div>
-      Seas
+      Initial Commit
       <style jsx global>
         {globalStyles}
       </style>
