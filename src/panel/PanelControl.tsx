@@ -14,10 +14,16 @@ export class PanelControl {
 
         this.Panels.next(tmp);
     }
+
+    public static setPanels(panels: IPanel[]) {
+        this.Panels.next(panels);
+    }
 }
 
 export interface IPanel {
     id?: string
+    x?: number,
+    y?: number,
     width: number
     height: number
     data: string
